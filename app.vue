@@ -1,9 +1,58 @@
 <script>
 import ThreeAvatar from '~/components/ThreeAvatar.vue';
-
+import ProjectCard from './components/ProjectCard.vue'
 export default {
   components: {
-    ThreeAvatar
+    ThreeAvatar,
+    ProjectCard
+  },
+  data() {
+    return {
+      projects: [
+        {
+          title: "Verbateam",
+          image: "/img/verbateam.png",
+          altText: "Verbateam Logo",
+          technology: "WordPress",
+          link: "https://verbateam-services.fr/"
+        },
+        {
+          title: "Lyomat",
+          image: "/img/lyomat.png",
+          altText: "Lyomat Logo",
+          technology: "WordPress",
+          link: "https://lyomat.fr/"
+        },
+        {
+          title: "ETPA",
+          image: "/img/etpa.png",
+          altText: "ETPA Logo",
+          technology: "Laravel",
+          link: "https://www.etpa.com/"
+        },
+        {
+          title: "Elixir",
+          image: "/img/elixir.png",
+          altText: "Elixir Logo",
+          technology: "Prestashop",
+          link: "https://elixir-lingerie.com"
+        },
+        {
+          title: "Alors",
+          image: "/img/alors.png",
+          altText: "Alors Logo",
+          technology: "Prestashop",
+          link: "https://velos.alors.store/"
+        },
+        {
+          title: "Clos & Hameaux",
+          image: "/img/closethameaux.png",
+          altText: "Clos et Hameaux Logo",
+          technology: "NuxtJs",
+          link: "https://closethameau.fr/"
+        }
+      ]
+    };
   }
 };
 </script>
@@ -52,9 +101,19 @@ export default {
           </div>
         </div>
       </section>
-      <section class="mt-8 container mx-auto font-mons">
-        <h2 class="text-3xl">Projets</h2>
-        <p class="mt-2 text-base">Voici quelques-uns de mes projets récents :</p>
+      <section class="my-28 container mx-auto font-mons flex flex-col gap-20">
+        <h2 class="text-4xl uppercase font-right text-center">projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
+          <ProjectCard
+            v-for="(project, index) in projects"
+            :key="index"
+            :title="project.title"
+            :image="project.image"
+            :altText="project.altText"
+            :technology="project.technology"
+            :link="project.link"
+          />
+        </div>
       </section>
     </main>
   </div>
