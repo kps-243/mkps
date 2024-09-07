@@ -65,11 +65,13 @@ export default {
 <template>
   <div class="bg-gradient-to-b from-purple-500 to-pink-300 text-white text-base">
     <header class="container mx-auto text-xs font-mons flex justify-between py-7">
-      <div class="px-1"></div>
+      <div class="px-1">
+        <img src="/img/logo-white.png" alt="Logo" class="w-20">
+      </div>
       <nav class="flex gap-5 text-base ">
         <a href="/" class="mr-4 text-center">Accueil</a>
         <a href="#a-propos" class="mr-4 text-center">À propos</a>
-        <a href="#projet" class="mr-4 text-center">Projets</a>
+        <a href="#project" class="mr-4 text-center">Projets</a>
         <a href="#contact" class="mr-4 text-center">Contact</a>
       </nav>
       <div>Call me. (+33) 06 66 84 23 88</div>
@@ -107,7 +109,7 @@ export default {
           </div>
         </div>
       </section>
-      <section class="my-28 container mx-auto font-mons flex flex-col gap-20">
+      <section id="project" class="my-28 container mx-auto font-mons flex flex-col gap-20">
         <h2 class="text-4xl uppercase font-right text-center">projects</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
           <ProjectCard
@@ -120,6 +122,20 @@ export default {
             :link="project.link"
             :description="project.description"
           />
+        </div>
+      </section>
+      <section id="contact" class="my-28 container mx-auto font-mons flex flex-col gap-12">
+        <h2 class="text-4xl uppercase font-right text-center">Contact</h2>
+        <div class="flex justify-center items-center gap-5 bg-white text-purple-500 rounded-full py-4 px-24 shadow-2xl">
+          <div class="w-1/2">
+            <p class="">Vous voulez en savoir plus sur Morgan KPASSI ?</p>
+            <p class=" font-semibold text-2xl">Téléchargez mon CV &#128521;</p>
+          </div>
+          <div class="flex justify-center items-center gap-5 w-1/2">
+            <button class="w-1/3 bg-purple-500 text-white px-4 py-2 rounded-xl hover:bg-pink-300 hover:text-white transition">
+              Télécharger
+            </button>
+          </div>
         </div>
       </section>
     </main>
