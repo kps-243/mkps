@@ -14,42 +14,48 @@ export default {
           image: "/img/verbateam.png",
           altText: "Verbateam Logo",
           technology: "WordPress",
-          link: "https://verbateam-services.fr/"
+          link: "https://verbateam-services.fr/",
+          description: "Site de prevention santé en entreprise.</br> Projet réalisé 1 mois et demi avec le texte dynamique."
         },
         {
           title: "Lyomat",
           image: "/img/lyomat.png",
           altText: "Lyomat Logo",
           technology: "WordPress",
-          link: "https://lyomat.fr/"
+          link: "https://lyomat.fr/",
+          description: "Site de vente de matériel de travaux en lien avec JBC.</br> 1 an de maintenance du projet (Mise à jour wordpress, ajout de fonctionnalités)."
         },
         {
           title: "ETPA",
           image: "/img/etpa.png",
           altText: "ETPA Logo",
           technology: "Laravel",
-          link: "https://www.etpa.com/"
+          link: "https://www.etpa.com/",
+          description: "Site de l'école de photographie ETPA.</br> Projet maintenu pendant 1 an."
         },
         {
           title: "Elixir",
           image: "/img/elixir.png",
           altText: "Elixir Logo",
           technology: "Prestashop",
-          link: "https://elixir-lingerie.com"
+          link: "https://elixir-lingerie.com",
+          description: "Site de vente de lingerie. </br>Projet réalisé en 3 mois + Maintenance (Mise à jour Prestashop, Fix bug,...)."
         },
         {
           title: "Alors",
           image: "/img/alors.png",
           altText: "Alors Logo",
           technology: "Prestashop",
-          link: "https://velos.alors.store/"
+          link: "https://velos.alors.store/",
+          description: "Site de vente de vélos.</br> Projet réalisé en 1 mois."
         },
         {
           title: "Clos & Hameaux",
           image: "/img/closethameaux.png",
           altText: "Clos et Hameaux Logo",
           technology: "NuxtJs",
-          link: "https://closethameau.fr/"
+          link: "https://closethameau.fr/",
+          description: "Site vitrine d'un village senior.</br> Lieux de détente et animé pour les personnes âgés.</br> Projet réalisé en 2 mois avec le back en Strapi."
         }
       ]
     };
@@ -112,6 +118,7 @@ export default {
             :altText="project.altText"
             :technology="project.technology"
             :link="project.link"
+            :description="project.description"
           />
         </div>
       </section>

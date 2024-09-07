@@ -27,7 +27,7 @@
           <!-- Image et description -->
           <img :src="image" :alt="altText" class="object-cover rounded-lg mb-4">
           <h3 class="text-2xl mb-2">{{ title }}</h3>
-          <p class="text-gray-700">{{ technology }} project description goes here...</p>
+          <p class="text-gray-700" v-html=description></p>
         </div>
       </div>
     </div>
@@ -61,6 +61,10 @@
       link: {
         type: String,
         required: true
+      },
+      description: {
+        type: String,
+        default: ''
       }
     }
   }
