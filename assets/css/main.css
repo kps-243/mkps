@@ -4,5 +4,9 @@
 @tailwind utilities;
 
 html {
-scroll-behavior: smooth;
+    scroll-behavior: smooth;
+}
+html, body {
+    overflow: auto;
+    height: 100%;
 }

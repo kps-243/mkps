@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 px-6 lg:px-0">
       <a :href="link" class="w-full min-h-64 project-card">
         <!-- Affiche l'image du projet -->
         <img :src="image" :alt="altText" class="object-cover rounded-xl shadow-2xl h-full project-image">
@@ -11,7 +11,7 @@
         <p>{{ technology }}</p>
   
         <!-- Bouton pour afficher la popup -->
-        <button @click="showPopup = true" class="w-1/2 mt-4 bg-white text-purple-500 px-4 py-2 rounded-xl hover:bg-purple-500 hover:text-white transition">
+        <button @click="showPopup = true" class="w-1/2 mt-1 lg:mt-4 bg-white text-purple-500 px-4 py-2 rounded-xl hover:bg-purple-500 hover:text-white transition">
           View Details
         </button>
       </div>
