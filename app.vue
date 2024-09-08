@@ -283,7 +283,7 @@ export default {
           />
         </div>
       </section>
-      
+
       <section id="contact" class="my-28 container mx-auto font-mons flex flex-col gap-12 px-6 lg:px-0">
         <h2 class="text-4xl uppercase font-right text-center contact-title">Contact</h2>
         <div class="flex flex-col lg:flex-row justify-center items-center gap-5 bg-white text-purple-500 lg:rounded-full rounded-3xl py-4 px-12 lg:px-24 shadow-2xl contact-content">
@@ -292,9 +292,9 @@ export default {
             <p class="font-semibold text-2xl">Download my CV &#128521;</p>
           </div>
           <div class="flex justify-end items-center gap-5 w-1/2">
-            <button class="w-full lg:w-fit bg-purple-500 text-white px-4 py-2 rounded-xl hover:bg-pink-300 hover:text-white transition">
+            <a href="pdf/CV_Morgan_Kpassi.pdf" target="_blank" class="w-full lg:w-fit bg-purple-500 text-white px-12 py-2 rounded-xl hover:bg-pink-300 hover:text-white transition">
               Download
-            </button>
+            </a>
           </div>
         </div>
       </section>
