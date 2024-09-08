@@ -2,7 +2,7 @@
     <div class="flex flex-col gap-4 px-6 lg:px-0">
       <a :href="link" class="w-full min-h-64 project-card">
         <!-- Affiche l'image du projet -->
-        <img :src="image" :alt="altText" class="object-cover rounded-xl shadow-2xl h-full project-image">
+        <img :src="image" :alt="altText" class="object-cover rounded-xl shadow-2xl h-full project-image -z-20">
       </a>
       <div class="flex flex-col gap-2 text-center items-center">
         <!-- Affiche le nom du projet -->
@@ -17,7 +17,7 @@
       </div>
   
       <!-- Popup (affiché si showPopup est vrai) -->
-      <div v-if="showPopup" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+      <div v-if="showPopup" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-30">
         <div class="bg-white p-6 rounded-lg shadow-lg relative w-96">
           <!-- Bouton pour fermer la popup -->
           <button @click="showPopup = false" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">

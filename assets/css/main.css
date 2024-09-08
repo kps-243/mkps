@@ -10,3 +10,7 @@ html, body {
     overflow: auto;
     height: 100%;
 }
+.quote span {
+    display: inline-block;
+    white-space: nowrap; /* Prevent line breaks within individual spans */
+  }

@@ -1,10 +1,10 @@
 <template>
-    <header class="container mx-auto py-4 px-2 font-mons">
+    <header class="container mx-auto py-8 px-10 z-20 font-mons bg-purple-500 sticky top-4 rounded-full shadow-2xl">
       <div class="flex justify-between items-center">
         <!-- Logo -->
-        <div class="px-1">
+        <a href="/" class="px-1">
           <img src="/img/logo.png" alt="Logo" class="w-20">
-        </div>
+        </a>
   
         <!-- Burger Menu Icon for Mobile -->
         <button @click="toggleMenu" class="block md:hidden focus:outline-none">
@@ -15,10 +15,10 @@
   
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex gap-5 text-base">
-          <a href="/" class="mr-4 text-center">Accueil</a>
-          <a href="#a-propos" class="mr-4 text-center">À propos</a>
-          <a href="#project" class="mr-4 text-center">Projets</a>
-          <a href="#contact" class="mr-4 text-center">Contact</a>
+          <a href="/" class="mr-4 text-center hover:text-pink-400">Home</a>
+          <a href="#a-propos" class="mr-4 text-center hover:text-pink-400">About</a>
+          <a href="#project" class="mr-4 text-center hover:text-pink-400">Projects</a>
+          <a href="#contact" class="mr-4 text-center hover:text-pink-400">Contact</a>
         </nav>
   
         <!-- Contact (visible on all screens) -->
@@ -28,10 +28,10 @@
       <!-- Mobile Navigation Menu -->
       <div v-if="isMenuOpen" class="md:hidden flex flex-col justify-center items-center mt-4 bg-purple-500 text-white rounded-lg p-4 h-screen w-screen">
         <nav class="flex flex-col gap-8 text-xl">
-          <a href="/" @click="toggleMenu" class="text-center">Accueil</a>
-          <a href="#a-propos" @click="toggleMenu" class="text-center">À propos</a>
-          <a href="#project" @click="toggleMenu" class="text-center">Projets</a>
-          <a href="#contact" @click="toggleMenu" class="text-center">Contact</a>
+          <a href="/" @click="toggleMenu" class="text-center hover:text-pink-400">Home</a>
+          <a href="#a-propos" @click="toggleMenu" class="text-center hover:text-pink-400">About</a>
+          <a href="#project" @click="toggleMenu" class="text-center hover:text-pink-400">Projects</a>
+          <a href="#contact" @click="toggleMenu" class="text-center hover:text-pink-400">Contact</a>
         </nav>
         <div class="mt-8 text-center">Call me. (+33) 06 66 84 23 88</div>
       </div>
