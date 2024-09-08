@@ -269,7 +269,7 @@ export default {
       </section>
 
       <section id="project" class="my-28 container mx-auto font-mons flex flex-col gap-12 lg:gap-20">
-        <h2 class="text-4xl uppercase font-right text-center title">projects</h2>
+        <h2 class="lg:text-4xl text-xl uppercase font-right text-center title">projects</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
           <ProjectCard
             v-for="(project, index) in projects"
@@ -285,13 +285,13 @@ export default {
       </section>
 
       <section id="contact" class="my-28 container mx-auto font-mons flex flex-col gap-12 px-6 lg:px-0">
-        <h2 class="text-4xl uppercase font-right text-center contact-title">Contact</h2>
+        <h2 class="lg:text-4xl text-xl uppercase font-right text-center contact-title">Contact</h2>
         <div class="flex flex-col lg:flex-row justify-center items-center gap-5 bg-white text-purple-500 lg:rounded-full rounded-3xl py-4 px-12 lg:px-24 shadow-2xl contact-content">
           <div class="w-full lg:w-1/2 text-center lg:text-left flex flex-col gap-4">
             <p>Want to know more about Morgan&nbsp;KPASSI?</p>
             <p class="font-semibold text-2xl">Download my CV &#128521;</p>
           </div>
-          <div class="flex justify-end items-center gap-5 w-1/2">
+          <div class="flex justify-end items-center gap-5 lg:w-1/2 w-fit">
             <a href="pdf/CV_Morgan_Kpassi.pdf" target="_blank" class="w-full lg:w-fit bg-purple-500 text-white px-12 py-2 rounded-xl hover:bg-pink-300 hover:text-white transition">
               Download
             </a>

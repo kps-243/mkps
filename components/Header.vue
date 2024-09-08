@@ -1,5 +1,5 @@
 <template>
-  <header class="container mx-auto py-8 px-10 z-20 font-mons bg-purple-500 sticky top-4 rounded-full shadow-2xl">
+  <header class="container mx-auto py-5 lg:py-8 px-10 z-20 font-mons bg-purple-500 sticky top-0 lg:top-4 lg:rounded-full shadow-2xl">
     <div class="flex justify-between items-center">
       <!-- Logo -->
       <a href="/" class="px-1 logo">
@@ -26,7 +26,7 @@
     </div>
 
     <!-- Mobile Navigation Menu -->
-    <div v-if="isMenuOpen" class="md:hidden flex flex-col justify-center items-center mt-4 bg-purple-500 text-white rounded-lg p-4 h-screen w-screen burger-menu-content">
+    <div v-if="isMenuOpen" class="md:hidden flex flex-col justify-center items-center mt-4 bg-purple-500 text-white rounded-lg p-4 h-screen burger-menu-content">
       <nav class="flex flex-col gap-8 text-xl">
         <a href="/" @click="toggleMenu" class="text-center hover:text-pink-400">Home</a>
         <a href="#a-propos" @click="toggleMenu" class="text-center hover:text-pink-400">About</a>
@@ -54,11 +54,6 @@ export default {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen; // Toggle the state of the menu
     },
-  },
-  mounted() {
-    this.animateHeader();
-  },
-  methods: {
     animateHeader() {
       gsap.from('.logo', {
         duration: 1,
@@ -123,6 +118,9 @@ export default {
         }
       });
     }
+  },
+  mounted() {
+    this.animateHeader();
   }
 };
 </script>
