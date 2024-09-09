@@ -72,143 +72,163 @@ export default {
     };
   },
   mounted() {
-    this.animateText();
-    this.animateAvatar();
-    this.animateAbout();
-    this.animateProjects(); // Appeler l'animation après le montage
-    this.animateContactSection();
+  this.setupAnimations();
+},
+methods: {
+  setupAnimations() {
+    ScrollTrigger.matchMedia({
+      // Désactiver le scrub pour les petits écrans
+      "(max-width: 768px)": () => {
+        this.animateText(false); // false pour désactiver scrub
+        this.animateAvatar(false);
+        this.animateAbout(false);
+        this.animateProjects(false);
+        this.animateContactSection(false);
+      },
+      
+      // Utiliser scrub pour les grands écrans
+      "(min-width: 769px)": () => {
+        this.animateText(true); // true pour activer scrub
+        this.animateAvatar(true);
+        this.animateAbout(true);
+        this.animateProjects(true);
+        this.animateContactSection(true);
+      }
+    });
   },
-  methods: {
-    animateProjects() {
-      gsap.utils.toArray('.project-card').forEach((card, index) => {
-        gsap.from(card, {
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 80%',
-            end: 'bottom 30%',
-            scrub: true,
-            toggleActions: 'play none none reset'
-          },
-          opacity: 0,
-          y: 50,
-          duration: 1,
-          delay: index * 0.1, // Un léger décalage pour chaque carte
-        });
-      });
-      gsap.from('.title-project', {
-        duration: 1.5,
-        y: -50,  // Moves the title up from 50px above its original position
-        opacity: 0,  // Fades the title in from transparent
-        ease: 'power3.out',
+  
+  animateProjects(scrubEnabled) {
+    gsap.utils.toArray('.project-card').forEach((card, index) => {
+      gsap.from(card, {
         scrollTrigger: {
-          trigger: '.title',
+          trigger: card,
           start: 'top 80%',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-    },
-    animateText() {
-      // Animate each letter of the name
-      gsap.from(".name span", {
-        duration: 1,
+          end: 'bottom 30%',
+          scrub: scrubEnabled ? true : false,
+          toggleActions: 'play none none reset'
+        },
         opacity: 0,
         y: 50,
-        stagger: 0.1,
-        ease: "back.out(1.7)"
-      });
-
-      // Animate each line of the quote
-      gsap.from(".quote span", {
-        duration: 1.5,
-        opacity: 0,
-        rotationX: 90,  // Adds a vertical flip rotation effect
-        transformOrigin: "top center",  // Defines the point from which the rotation happens
-        stagger: 0.15,  // Less time between each line's appearance
-        ease: "expo.out",  // Creates a smoother, more dramatic easing
-        delay: 1  // Delay to start after the name animation
-      });
-    },
-    animateAvatar() {
-      // Animate the avatar to appear after the text
-      gsap.from(this.$refs.avatar.$el, {
-        duration: 1.5,
-        opacity: 0,
-        y: 100,
-        ease: "power3.out",
-        delay: 1.5
-      });
-    },
-    animateAbout() {
-      gsap.from('.image', {
-        duration: 1.5,
-        x: -100,
-        opacity: 0,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.image',
-          start: 'top 80%',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-
-      gsap.from('.title', {
         duration: 1,
-        x: 100,
-        opacity: 0,
-        stagger: 0.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.title',
-          start: 'top 90%',
-          end: 'bottom top',
-          scrub: true
-        }
+        delay: index * 0.1,
       });
+    });
+    
+    gsap.from('.title-project', {
+      duration: 1.5,
+      y: -50,
+      opacity: 0,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.title-project',
+        start: 'top 80%',
+        end: 'bottom top',
+        scrub: scrubEnabled ? true : false,
+      }
+    });
+  },
 
-      gsap.from('.me', {
-        duration: 1.5,
-        x: 100,
-        opacity: 0,
-        stagger: 0.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.me',
-          start: 'top 80%',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-    },
-    animateContactSection() {
-      gsap.from('.contact-title', {
-        duration: 1.5,
-        y: -50,  // Moves the title up from 50px above its original position
-        opacity: 0,  // Fades the title in from transparent
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.contact-title',
-          start: 'top 80%',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
+  animateText(scrubEnabled) {
+    gsap.from(".name span", {
+      duration: 1,
+      opacity: 0,
+      y: 50,
+      stagger: 0.1,
+      ease: "back.out(1.7)"
+    });
 
-      gsap.from('.contact-content', {
-        duration: 1.5,
-        y: 50,  // Moves the content up from 50px below its original position
-        opacity: 0,  // Fades the content in from transparent
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.contact-content',
-          start: 'top 80%',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-    }
+    gsap.from(".quote span", {
+      duration: 1.5,
+      opacity: 0,
+      rotationX: 90,
+      transformOrigin: "top center",
+      stagger: 0.15,
+      ease: "expo.out",
+      delay: 1
+    });
+  },
+
+  animateAvatar(scrubEnabled) {
+    gsap.from(this.$refs.avatar.$el, {
+      duration: 1.5,
+      opacity: 0,
+      y: 100,
+      ease: "power3.out",
+      delay: 1.5
+    });
+  },
+
+  animateAbout(scrubEnabled) {
+    gsap.from('.image', {
+      duration: 1.5,
+      x: -100,
+      opacity: 0,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.image',
+        start: 'top 80%',
+        end: 'bottom top',
+        scrub: scrubEnabled ? true : false,
+      }
+    });
+
+    gsap.from('.title', {
+      duration: 1,
+      x: 100,
+      opacity: 0,
+      stagger: 0.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.title',
+        start: 'top 90%',
+        end: 'bottom top',
+        scrub: scrubEnabled ? true : false,
+      }
+    });
+
+    gsap.from('.me', {
+      duration: 1.5,
+      x: 100,
+      opacity: 0,
+      stagger: 0.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.me',
+        start: 'top 80%',
+        end: 'bottom top',
+        scrub: scrubEnabled ? true : false,
+      }
+    });
+  },
+
+  animateContactSection(scrubEnabled) {
+    gsap.from('.contact-title', {
+      duration: 1.5,
+      y: -50,
+      opacity: 0,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.contact-title',
+        start: 'top 80%',
+        end: 'bottom top',
+        scrub: scrubEnabled ? true : false,
+      }
+    });
+
+    gsap.from('.contact-content', {
+      duration: 1.5,
+      y: 50,
+      opacity: 0,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.contact-content',
+        start: 'top 80%',
+        end: 'bottom top',
+        scrub: scrubEnabled ? true : false,
+      }
+    });
   }
+}
 };
 </script>
 <template>
