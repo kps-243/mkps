@@ -22,7 +22,7 @@ export default {
       projects: [
         {
           title: "Verbateam",
-          image: "/img/verbateam.png",
+          image: "/img/verbateam.jpeg",
           altText: "Verbateam Logo",
           technology: "WordPress",
           link: "https://verbateam-services.fr/",
@@ -30,7 +30,7 @@ export default {
         },
         {
           title: "Lyomat",
-          image: "/img/lyomat.png",
+          image: "/img/lyomat.jpeg",
           altText: "Lyomat Logo",
           technology: "WordPress",
           link: "https://lyomat.fr/",
@@ -38,7 +38,7 @@ export default {
         },
         {
           title: "ETPA",
-          image: "/img/etpa.png",
+          image: "/img/etpa.jpeg",
           altText: "ETPA Logo",
           technology: "Laravel",
           link: "https://www.etpa.com/",
@@ -46,7 +46,7 @@ export default {
         },
         {
           title: "Elixir",
-          image: "/img/elixir.png",
+          image: "/img/elixir.jpeg",
           altText: "Elixir Logo",
           technology: "Prestashop",
           link: "https://elixir-lingerie.com",
@@ -54,7 +54,7 @@ export default {
         },
         {
           title: "Alors",
-          image: "/img/alors.png",
+          image: "/img/alors.jpeg",
           altText: "Alors Logo",
           technology: "Prestashop",
           link: "https://velos.alors.store/",
@@ -62,7 +62,7 @@ export default {
         },
         {
           title: "Clos & Hameaux",
-          image: "/img/closethameaux.png",
+          image: "/img/closethameaux.jpeg",
           altText: "Clos et Hameaux Logo",
           technology: "NuxtJs",
           link: "https://closethameau.fr/",
