@@ -292,7 +292,7 @@ export default {
             <p class="font-semibold text-2xl">Download my CV &#128521;</p>
           </div>
           <div class="flex justify-end items-center gap-5 lg:w-1/2 w-fit">
-            <a href="pdf/CV_Morgan_Kpassi.pdf" target="_blank" class="w-full lg:w-fit bg-purple-500 text-white px-12 py-2 rounded-xl hover:bg-pink-300 hover:text-white transition">
+            <a href="pdf/cv_morgan_kpassi.pdf" target="_blank" class="w-full lg:w-fit bg-purple-500 text-white px-12 py-2 rounded-xl hover:bg-pink-300 hover:text-white transition">
               Download
             </a>
           </div>
