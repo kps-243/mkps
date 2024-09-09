@@ -48,48 +48,53 @@ export default {
   },
   methods: {
     animateFooter() {
-      gsap.from('.part1', {
-        duration: 1,
-        y: 30,  // Moves the element in from 30px to the left
-        opacity: 0,  // Fades the element in from transparent
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.part2',
-          start: 'top 75%',
-          end: 'bottom bottom',  // Stops animation when the element's bottom hits the viewport's bottom
-          scrub: 1,
-          onEnter: () => console.log('Footer Part 1 Entered'),  // Debugging
-          onEnterBack: () => console.log('Footer Part 1 Entered Back'),  // Debugging
-        }
-      });
+      // Utiliser matchMedia pour appliquer des animations seulement sur les grands écrans
+      ScrollTrigger.matchMedia({
+        // Pour les écrans mobiles (max-width: 768px)
+        "(max-width: 768px)": () => {
+          // Ne rien faire ici pour désactiver les animations sur mobile
+        },
 
-      gsap.from('.part2', {
-        duration: 1,
-        x: -30,  // Moves the element in from 30px to the left
-        opacity: 0,  // Fades the element in from transparent
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.part2',
-          start: 'top 75%',
-          end: 'bottom bottom',  // Stops animation when the element's bottom hits the viewport's bottom
-          scrub: 1,
-          onEnter: () => console.log('Footer Part 2 Entered'),  // Debugging
-          onEnterBack: () => console.log('Footer Part 2 Entered Back'),  // Debugging
-        }
-      });
+        // Pour les écrans de taille moyenne et plus grands
+        "(min-width: 769px)": () => {
+          gsap.from('.part1', {
+            duration: 1,
+            y: 30,
+            opacity: 0,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: '.part2',
+              start: 'top 75%',
+              end: 'bottom bottom',
+              scrub: 1,
+            }
+          });
 
-      gsap.from('.part3', {
-        duration: 1,
-        x: 30,  // Moves the element in from 30px to the right
-        opacity: 0,  // Fades the element in from transparent
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.part3',
-          start: 'top 75%',
-          end: 'bottom bottom',  // Stops animation when the element's bottom hits the viewport's bottom
-          scrub: 1,
-          onEnter: () => console.log('Footer Part 3 Entered'),  // Debugging
-          onEnterBack: () => console.log('Footer Part 3 Entered Back'),  // Debugging
+          gsap.from('.part2', {
+            duration: 1,
+            x: -30,
+            opacity: 0,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: '.part2',
+              start: 'top 75%',
+              end: 'bottom bottom',
+              scrub: 1,
+            }
+          });
+
+          gsap.from('.part3', {
+            duration: 1,
+            x: 30,
+            opacity: 0,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: '.part3',
+              start: 'top 75%',
+              end: 'bottom bottom',
+              scrub: 1,
+            }
+          });
         }
       });
     }

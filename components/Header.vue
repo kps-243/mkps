@@ -27,7 +27,7 @@
 
     <!-- Mobile Navigation Menu -->
     <div v-if="isMenuOpen" class="md:hidden flex flex-col justify-center items-center mt-4 bg-purple-500 text-white rounded-lg p-4 h-screen burger-menu-content">
-      <nav class="flex flex-col gap-8 text-xl">
+      <nav class="flex flex-col gap-8 text-xl -mt-10">
         <a href="/" @click="toggleMenu" class="text-center hover:text-pink-400">Home</a>
         <a href="#a-propos" @click="toggleMenu" class="text-center hover:text-pink-400">About</a>
         <a href="#project" @click="toggleMenu" class="text-center hover:text-pink-400">Projects</a>

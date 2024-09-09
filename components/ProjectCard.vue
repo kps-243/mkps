@@ -1,9 +1,10 @@
 <template>
-    <div class="flex flex-col gap-4 px-6 lg:px-0">
-      <a :href="link" class="w-full h-fit lg:min-h-64 project-card -mt-9 lg:mt-0">
+    <div class="flex flex-col gap-4 px-6 lg:px-0 pb-4 lg:pb-0">
+      <a :href="link" class="w-full h-auto min-h-48 lg:min-h-64 project-card -mt-9 lg:mt-0">
         <!-- Affiche l'image du projet -->
-        <img :src="image" :alt="altText" class="object-cover rounded-xl shadow-2xl h-full project-image -z-20">
+        <img :src="image" :alt="altText" class="w-full h-auto max-h-[60vh] md:max-h-none object-cover rounded-xl shadow-2xl project-image -z-20">
       </a>
+
       <div class="flex flex-col gap-2 text-center items-center">
         <!-- Affiche le nom du projet -->
         <h3 class="text-2xl">{{ title }}</h3>
