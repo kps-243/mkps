@@ -75,126 +75,160 @@ export default {
   this.setupAnimations();
 },
 methods: {
-    setupAnimations() {
-      ScrollTrigger.matchMedia({
-        // Animations pour les petits écrans (mobile)
-        "(max-width: 768px)": () => {
-          this.animateTextMobile();
-          this.animateAvatarMobile();
-          this.animateProjectsMobile();
-          this.animateContactSectionMobile();
-        },
-
-        // Animations pour les grands écrans (desktop)
-        "(min-width: 769px)": () => {
-          this.animateTextDesktop();
-          this.animateAvatarDesktop();
-          this.animateProjectsDesktop();
-          this.animateContactSectionDesktop();
-        }
-      });
-    },
-
-    // Animations Mobile
-    animateTextMobile() {
-      gsap.from(".name span", {
-        duration: 0.8,
-        opacity: 0,
-        y: 30,
-        stagger: 0.1,
-        ease: "back.out(1.7)"
-      });
-    },
-    animateAvatarMobile() {
-      gsap.from(this.$refs.avatar.$el, {
-        duration: 1,
-        opacity: 0,
-        y: 50,
-        ease: "power3.out",
-        delay: 1
-      });
-    },
-    animateProjectsMobile() {
-      gsap.utils.toArray('.project-card').forEach((card, index) => {
-        gsap.from(card, {
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 90%',
-            end: 'bottom 40%',
-            scrub: true,
-          },
-          opacity: 0,
-          y: 20,
-          duration: 0.6,
-          delay: index * 0.1,
-        });
-      });
-    },
-    animateContactSectionMobile() {
-      gsap.from('.contact-title', {
-        duration: 1,
-        y: -30,
-        opacity: 0,
-        ease: 'power3.out',
+  setupAnimations() {
+    ScrollTrigger.matchMedia({
+      // Désactiver le scrub pour les petits écrans
+      "(max-width: 768px)": () => {
+        this.animateText(false); // false pour désactiver scrub
+        this.animateAvatar(false);
+        this.animateAbout(false);
+        this.animateProjects(false);
+        this.animateContactSection(false);
+      },
+      
+      // Utiliser scrub pour les grands écrans
+      "(min-width: 769px)": () => {
+        this.animateText(true); // true pour activer scrub
+        this.animateAvatar(true);
+        this.animateAbout(true);
+        this.animateProjects(true);
+        this.animateContactSection(true);
+      }
+    });
+  },
+  
+  animateProjects(scrubEnabled) {
+    gsap.utils.toArray('.project-card').forEach((card, index) => {
+      gsap.from(card, {
         scrollTrigger: {
-          trigger: '.contact-title',
-          start: 'top 80%',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-    },
-
-    // Animations Desktop
-    animateTextDesktop() {
-      gsap.from(".name span", {
-        duration: 1,
-        opacity: 0,
-        y: 50,
-        stagger: 0.1,
-        ease: "back.out(1.7)"
-      });
-    },
-    animateAvatarDesktop() {
-      gsap.from(this.$refs.avatar.$el, {
-        duration: 1.5,
-        opacity: 0,
-        y: 100,
-        ease: "power3.out",
-        delay: 1.5
-      });
-    },
-    animateProjectsDesktop() {
-      gsap.utils.toArray('.project-card').forEach((card, index) => {
-        gsap.from(card, {
-          scrollTrigger: {
-            trigger: card,
+          trigger: card,
           start: 'top 80%',
           end: 'bottom 30%',
-          scrub: true,
-          },
-          opacity: 0,
-          y: 50,
-          duration: 1,
-          delay: index * 0.1,
-        });
-      });
-    },
-    animateContactSectionDesktop() {
-      gsap.from('.contact-title', {
-        duration: 1.5,
-        y: -50,
+          scrub: scrubEnabled ? true : false,
+          toggleActions: 'play none none reset'
+        },
         opacity: 0,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.contact-title',
-          start: 'top 80%',
-          end: 'bottom top',
-          scrub: true
-        }
+        y: 50,
+        duration: 1,
+        delay: index * 0.1,
       });
-    }
+    });
+    
+    gsap.from('.title-project', {
+      duration: 1.5,
+      y: -50,
+      opacity: 0,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.title-project',
+        start: 'top 80%',
+        end: 'bottom top',
+        scrub: scrubEnabled ? true : false,
+      }
+    });
+  },
+
+  animateText(scrubEnabled) {
+    gsap.from(".name span", {
+      duration: 1,
+      opacity: 0,
+      y: 50,
+      stagger: 0.1,
+      ease: "back.out(1.7)"
+    });
+
+    gsap.from(".quote span", {
+      duration: 1.5,
+      opacity: 0,
+      rotationX: 90,
+      transformOrigin: "top center",
+      stagger: 0.15,
+      ease: "expo.out",
+      delay: 1
+    });
+  },
+
+  animateAvatar(scrubEnabled) {
+    gsap.from(this.$refs.avatar.$el, {
+      duration: 1.5,
+      opacity: 0,
+      y: 100,
+      ease: "power3.out",
+      delay: 1.5
+    });
+  },
+
+  animateAbout(scrubEnabled) {
+    gsap.from('.image', {
+      duration: 1.5,
+      x: -100,
+      opacity: 0,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.image',
+        start: 'top 80%',
+        end: 'bottom top',
+        scrub: scrubEnabled ? true : false,
+      }
+    });
+
+    gsap.from('.title', {
+      duration: 1,
+      x: 100,
+      opacity: 0,
+      stagger: 0.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.title',
+        start: 'top 90%',
+        end: 'bottom top',
+        scrub: scrubEnabled ? true : false,
+      }
+    });
+
+    gsap.from('.me', {
+      duration: 1.5,
+      x: 100,
+      opacity: 0,
+      stagger: 0.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.me',
+        start: 'top 80%',
+        end: 'bottom top',
+        scrub: scrubEnabled ? true : false,
+      }
+    });
+  },
+
+  animateContactSection(scrubEnabled) {
+    gsap.from('.contact-title', {
+      duration: 1.5,
+      y: -50,
+      opacity: 0,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.contact-title',
+        start: 'top 80%',
+        end: 'bottom top',
+        scrub: scrubEnabled ? true : false,
+      }
+    });
+
+    gsap.from('.contact-content', {
+      duration: 1.5,
+      y: 50,
+      opacity: 0,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.contact-content',
+        start: 'top 80%',
+        end: 'bottom top',
+        scrub: scrubEnabled ? true : false,
+      }
+    });
   }
+}
 };
 </script>
 <template>
