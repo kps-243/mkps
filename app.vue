@@ -72,230 +72,253 @@ export default {
     };
   },
   mounted() {
-    this.setupAnimations();
+  this.setupAnimations();
+  this.handleAnchorClick(); // Ajoutez cette ligne pour gérer les clics sur les ancres
+},
+
+methods: {
+  setupAnimations() {
+    ScrollTrigger.matchMedia({
+      // Désactiver les animations pour mobile
+      "(max-width: 768px)": () => {
+        this.animateText(false);
+        this.animateAvatar(false);
+        this.animateAbout(false);
+        this.animateProjects(false, true);
+        this.animateContactSection(false);
+      },
+      
+      // Activer les animations pour les grands écrans
+      "(min-width: 769px)": () => {
+        this.animateText(true);
+        this.animateAvatar(true);
+        this.animateAbout(true);
+        this.animateProjects(true, false);
+        this.animateContactSection(true);
+      }
+    });
   },
-  methods: {
-    setupAnimations() {
-      ScrollTrigger.matchMedia({
-        // Désactiver le scrub et les animations pour project-card sur mobile
-        "(max-width: 768px)": () => {
-          this.animateText(false); // Animations sans scrub
-          this.animateAvatar(false);
-          this.animateAbout(false);
-          this.animateProjects(false, true); // Désactive complètement les animations des project-cards
-          this.animateContactSection(false);
-        },
-        
-        // Utiliser scrub et les animations avec ScrollTrigger pour les grands écrans
-        "(min-width: 769px)": () => {
-          this.animateText(true); // Animations avec scrub
-          this.animateAvatar(true);
-          this.animateAbout(true);
-          this.animateProjects(true, false); // Active les animations des project-cards
-          this.animateContactSection(true);
+
+  handleAnchorClick() {
+    // Gérer les clics sur les ancres pour assurer un défilement fluide
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+
+          // Assurez-vous que ScrollTrigger est rafraîchi après le défilement
+          setTimeout(() => {
+            ScrollTrigger.refresh(); 
+          }, 500); // Attendez un moment pour que le défilement soit terminé
         }
       });
-    },
+    });
+  },
 
-    animateProjects(scrubEnabled, disableOnMobile) {
-      if (disableOnMobile) {
-        // Si l'on est sur mobile, ne pas exécuter les animations des project-cards
-        return;
-      }
+  animateProjects(scrubEnabled, disableOnMobile) {
+    if (disableOnMobile) {
+      // Si l'on est sur mobile, ne pas exécuter les animations des project-cards
+      return;
+    }
 
-      if (!scrubEnabled) {
-        // Animation basique pour mobile sans ScrollTrigger
-        gsap.from('.title-project', {
-          duration: 1.5,
-          y: -50,
-          opacity: 0,
-          ease: 'power3.out',
-        });
-      } else {
-        // Animation avec ScrollTrigger pour desktop
-        gsap.utils.toArray('.project-card').forEach((card, index) => {
-          gsap.from(card, {
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 80%',
-              end: 'bottom 30%',
-              scrub: true,
-              toggleActions: 'play none none reset'
-            },
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            delay: index * 0.1,
-          });
-        });
-
-        gsap.from('.title-project', {
-          duration: 1.5,
-          y: -50,
-          opacity: 0,
-          ease: 'power3.out',
+    if (!scrubEnabled) {
+      // Animation basique pour mobile sans ScrollTrigger
+      gsap.from('.title-project', {
+        duration: 1.5,
+        y: -50,
+        opacity: 0,
+        ease: 'power3.out',
+      });
+    } else {
+      // Animation avec ScrollTrigger pour desktop
+      gsap.utils.toArray('.project-card').forEach((card, index) => {
+        gsap.from(card, {
           scrollTrigger: {
-            trigger: '.title-project',
+            trigger: card,
             start: 'top 80%',
-            end: 'bottom top',
+            end: 'bottom 30%',
             scrub: true,
-          }
+            toggleActions: 'play none none reset'
+          },
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          delay: index * 0.1,
         });
-      }
-    },
+      });
 
-    animateText(scrubEnabled) {
-      // Animation simple du texte qui marche pour les deux
-      gsap.from(".name span", {
+      gsap.from('.title-project', {
+        duration: 1.5,
+        y: -50,
+        opacity: 0,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.title-project',
+          start: 'top 80%',
+          end: 'bottom top',
+          scrub: true,
+        }
+      });
+    }
+  },
+
+  animateText(scrubEnabled) {
+    // Animation simple du texte qui marche pour les deux
+    gsap.from(".name span", {
+      duration: 1,
+      opacity: 0,
+      y: 50,
+      stagger: 0.1,
+      ease: "back.out(1.7)"
+    });
+
+    gsap.from(".quote span", {
+      duration: 1.5,
+      opacity: 0,
+      rotationX: 90,
+      transformOrigin: "top center",
+      stagger: 0.15,
+      ease: "expo.out",
+      delay: 1
+    });
+  },
+
+  animateAvatar(scrubEnabled) {
+    // Animation de l'avatar, basique sans ScrollTrigger pour mobile
+    gsap.from(this.$refs.avatar, {
+      duration: 1.5,
+      opacity: 0,
+      y: 100,
+      ease: "power3.out",
+      delay: 1.5
+    });
+  },
+
+  animateAbout(scrubEnabled) {
+    if (!scrubEnabled) {
+      // Animation basique pour mobile sans ScrollTrigger
+      gsap.from('.image', {
+        duration: 1.5,
+        x: -100,
+        opacity: 0,
+        ease: 'power3.out',
+      });
+
+      gsap.from('.title', {
         duration: 1,
+        x: 100,
         opacity: 0,
+        stagger: 0.2,
+        ease: 'power3.out',
+      });
+
+      gsap.from('.me', {
+        duration: 1.5,
+        x: 100,
+        opacity: 0,
+        stagger: 0.2,
+        ease: 'power3.out',
+      });
+    } else {
+      // Animations avec ScrollTrigger pour desktop
+      gsap.from('.image', {
+        duration: 1.5,
+        x: -100,
+        opacity: 0,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.image',
+          start: 'top 80%',
+          end: 'bottom top',
+          scrub: true,
+        }
+      });
+
+      gsap.from('.title', {
+        duration: 1,
+        x: 100,
+        opacity: 0,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.title',
+          start: 'top 90%',
+          end: 'bottom top',
+          scrub: true,
+        }
+      });
+
+      gsap.from('.me', {
+        duration: 1.5,
+        x: 100,
+        opacity: 0,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.me',
+          start: 'top 80%',
+          end: 'bottom top',
+          scrub: true,
+        }
+      });
+    }
+  },
+
+  animateContactSection(scrubEnabled) {
+    if (!scrubEnabled) {
+      // Animation basique pour mobile sans ScrollTrigger
+      gsap.from('.contact-title', {
+        duration: 1.5,
+        y: -50,
+        opacity: 0,
+        ease: 'power3.out',
+      });
+
+      gsap.from('.contact-content', {
+        duration: 1.5,
         y: 50,
-        stagger: 0.1,
-        ease: "back.out(1.7)"
-      });
-
-      gsap.from(".quote span", {
-        duration: 1.5,
         opacity: 0,
-        rotationX: 90,
-        transformOrigin: "top center",
-        stagger: 0.15,
-        ease: "expo.out",
-        delay: 1
+        ease: 'power3.out',
       });
-    },
-
-    animateAvatar(scrubEnabled) {
-      // Animation de l'avatar, basique sans ScrollTrigger pour mobile
-      gsap.from(this.$refs.avatar, {
+    } else {
+      // Animation avec ScrollTrigger pour desktop
+      gsap.from('.contact-title', {
         duration: 1.5,
+        y: -50,
         opacity: 0,
-        y: 100,
-        ease: "power3.out",
-        delay: 1.5
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.contact-title',
+          start: 'top 80%',
+          end: 'bottom top',
+          scrub: true,
+        }
       });
-    },
 
-    animateAbout(scrubEnabled) {
-      if (!scrubEnabled) {
-        // Animation basique pour mobile sans ScrollTrigger
-        gsap.from('.image', {
-          duration: 1.5,
-          x: -100,
-          opacity: 0,
-          ease: 'power3.out',
-        });
-
-        gsap.from('.title', {
-          duration: 1,
-          x: 100,
-          opacity: 0,
-          stagger: 0.2,
-          ease: 'power3.out',
-        });
-
-        gsap.from('.me', {
-          duration: 1.5,
-          x: 100,
-          opacity: 0,
-          stagger: 0.2,
-          ease: 'power3.out',
-        });
-      } else {
-        // Animations avec ScrollTrigger pour desktop
-        gsap.from('.image', {
-          duration: 1.5,
-          x: -100,
-          opacity: 0,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '.image',
-            start: 'top 80%',
-            end: 'bottom top',
-            scrub: true,
-          }
-        });
-
-        gsap.from('.title', {
-          duration: 1,
-          x: 100,
-          opacity: 0,
-          stagger: 0.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '.title',
-            start: 'top 90%',
-            end: 'bottom top',
-            scrub: true,
-          }
-        });
-
-        gsap.from('.me', {
-          duration: 1.5,
-          x: 100,
-          opacity: 0,
-          stagger: 0.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '.me',
-            start: 'top 80%',
-            end: 'bottom top',
-            scrub: true,
-          }
-        });
-      }
-    },
-
-    animateContactSection(scrubEnabled) {
-      if (!scrubEnabled) {
-        // Animation basique pour mobile sans ScrollTrigger
-        gsap.from('.contact-title', {
-          duration: 1.5,
-          y: -50,
-          opacity: 0,
-          ease: 'power3.out',
-        });
-
-        gsap.from('.contact-content', {
-          duration: 1.5,
-          y: 50,
-          opacity: 0,
-          ease: 'power3.out',
-        });
-      } else {
-        // Animation avec ScrollTrigger pour desktop
-        gsap.from('.contact-title', {
-          duration: 1.5,
-          y: -50,
-          opacity: 0,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '.contact-title',
-            start: 'top 80%',
-            end: 'bottom top',
-            scrub: true,
-          }
-        });
-
-        gsap.from('.contact-content', {
-          duration: 1.5,
-          y: 50,
-          opacity: 0,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: '.contact-content',
-            start: 'top 80%',
-            end: 'bottom top',
-            scrub: true,
-          }
-        });
-      }
-    },
-  }
+      gsap.from('.contact-content', {
+        duration: 1.5,
+        y: 50,
+        opacity: 0,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.contact-content',
+          start: 'top 80%',
+          end: 'bottom top',
+          scrub: true,
+        }
+      });
+    }
+  },
+}
 };
 </script>
 <template>
   <div class="bg-gradient-to-b from-purple-500 to-pink-300 text-white text-base">
+    <span id="home"></span>
     <Header />
     <main>
       <section class="lg:py-16 py-8 container mx-auto font-mons text-center flex flex-col gap-12">

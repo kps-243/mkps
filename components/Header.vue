@@ -2,7 +2,7 @@
   <header class="container mx-auto py-5 lg:py-8 px-10 z-20 font-mons bg-purple-500 sticky top-0 lg:top-4 lg:rounded-full shadow-2xl">
     <div class="flex justify-between items-center">
       <!-- Logo -->
-      <a href="/" class="px-1 logo">
+      <a href="#home" class="px-1 logo">
         <img src="/img/logo.png" alt="Logo" class="w-20">
       </a>
 
@@ -15,7 +15,7 @@
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex gap-5 text-base nav-links">
-        <a href="/" class="mr-4 text-center hover:text-pink-400">Home</a>
+        <a href="#home" class="mr-4 text-center hover:text-pink-400">Home</a>
         <a href="#a-propos" class="mr-4 text-center hover:text-pink-400">About</a>
         <a href="#project" class="mr-4 text-center hover:text-pink-400">Projects</a>
         <a href="#contact" class="mr-4 text-center hover:text-pink-400">Contact</a>
@@ -28,7 +28,7 @@
     <!-- Mobile Navigation Menu -->
     <div v-if="isMenuOpen" class="md:hidden flex flex-col justify-center items-center mt-4 bg-purple-500 text-white rounded-lg p-4 h-screen burger-menu-content">
       <nav class="flex flex-col gap-8 text-xl -mt-10">
-        <a href="/" @click="toggleMenu" class="text-center hover:text-pink-400">Home</a>
+        <a href="#home" @click="toggleMenu" class="text-center hover:text-pink-400">Home</a>
         <a href="#a-propos" @click="toggleMenu" class="text-center hover:text-pink-400">About</a>
         <a href="#project" @click="toggleMenu" class="text-center hover:text-pink-400">Projects</a>
         <a href="#contact" @click="toggleMenu" class="text-center hover:text-pink-400">Contact</a>

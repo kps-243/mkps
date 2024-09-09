@@ -3,12 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-    scroll-behavior: smooth;
-}
 html, body {
     overflow: auto;
     height: 100%;
+    scroll-behavior: smooth;
 }
 .quote span {
     display: inline-block;
