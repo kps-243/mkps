@@ -77,12 +77,12 @@ export default {
   methods: {
     setupAnimations() {
       ScrollTrigger.matchMedia({
-        // Désactiver le scrub et ajuster les animations pour les petits écrans
+        // Désactiver le scrub et les animations pour project-card sur mobile
         "(max-width: 768px)": () => {
           this.animateText(false); // Animations sans scrub
           this.animateAvatar(false);
           this.animateAbout(false);
-          this.animateProjects(false);
+          this.animateProjects(false, true); // Désactive complètement les animations des project-cards
           this.animateContactSection(false);
         },
         
@@ -91,20 +91,24 @@ export default {
           this.animateText(true); // Animations avec scrub
           this.animateAvatar(true);
           this.animateAbout(true);
-          this.animateProjects(true);
+          this.animateProjects(true, false); // Active les animations des project-cards
           this.animateContactSection(true);
         }
       });
     },
 
-    animateProjects(scrubEnabled) {
+    animateProjects(scrubEnabled, disableOnMobile) {
+      if (disableOnMobile) {
+        // Si l'on est sur mobile, ne pas exécuter les animations des project-cards
+        return;
+      }
+
       if (!scrubEnabled) {
         // Animation basique pour mobile sans ScrollTrigger
-        gsap.from('.project-card', {
-          duration: 1,
+        gsap.from('.title-project', {
+          duration: 1.5,
+          y: -50,
           opacity: 0,
-          y: 50,
-          stagger: 0.1,
           ease: 'power3.out',
         });
       } else {
