@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col gap-4 px-6 lg:px-0">
-      <a :href="link" class="w-full min-h-64 project-card -mt-9 lg:mt-0">
+      <a :href="link" class="w-full h-fit lg:min-h-64 project-card -mt-9 lg:mt-0">
         <!-- Affiche l'image du projet -->
         <img :src="image" :alt="altText" class="object-cover rounded-xl shadow-2xl h-full project-image -z-20">
       </a>
@@ -84,6 +84,12 @@
   .project-card:hover .project-image {
     transform: scale(1.05);
     filter: brightness(1.1);
+  }
+  @media (max-width: 768px) {
+    .project-card:hover .project-image {
+      transform: none;
+      filter: none;
+    }
   }
   </style>
   

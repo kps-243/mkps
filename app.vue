@@ -72,163 +72,222 @@ export default {
     };
   },
   mounted() {
-  this.setupAnimations();
-},
-methods: {
-  setupAnimations() {
-    ScrollTrigger.matchMedia({
-      // Désactiver le scrub pour les petits écrans
-      "(max-width: 768px)": () => {
-        this.animateText(false); // false pour désactiver scrub
-        this.animateAvatar(false);
-        this.animateAbout(false);
-        this.animateProjects(false);
-        this.animateContactSection(false);
-      },
-      
-      // Utiliser scrub pour les grands écrans
-      "(min-width: 769px)": () => {
-        this.animateText(true); // true pour activer scrub
-        this.animateAvatar(true);
-        this.animateAbout(true);
-        this.animateProjects(true);
-        this.animateContactSection(true);
-      }
-    });
+    this.setupAnimations();
   },
-  
-  animateProjects(scrubEnabled) {
-    gsap.utils.toArray('.project-card').forEach((card, index) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 80%',
-          end: 'bottom 30%',
-          scrub: scrubEnabled ? true : false,
-          toggleActions: 'play none none reset'
+  methods: {
+    setupAnimations() {
+      ScrollTrigger.matchMedia({
+        // Désactiver le scrub et ajuster les animations pour les petits écrans
+        "(max-width: 768px)": () => {
+          this.animateText(false); // Animations sans scrub
+          this.animateAvatar(false);
+          this.animateAbout(false);
+          this.animateProjects(false);
+          this.animateContactSection(false);
         },
+        
+        // Utiliser scrub et les animations avec ScrollTrigger pour les grands écrans
+        "(min-width: 769px)": () => {
+          this.animateText(true); // Animations avec scrub
+          this.animateAvatar(true);
+          this.animateAbout(true);
+          this.animateProjects(true);
+          this.animateContactSection(true);
+        }
+      });
+    },
+
+    animateProjects(scrubEnabled) {
+      if (!scrubEnabled) {
+        // Animation basique pour mobile sans ScrollTrigger
+        gsap.from('.project-card', {
+          duration: 1,
+          opacity: 0,
+          y: 50,
+          stagger: 0.1,
+          ease: 'power3.out',
+        });
+      } else {
+        // Animation avec ScrollTrigger pour desktop
+        gsap.utils.toArray('.project-card').forEach((card, index) => {
+          gsap.from(card, {
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 80%',
+              end: 'bottom 30%',
+              scrub: true,
+              toggleActions: 'play none none reset'
+            },
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            delay: index * 0.1,
+          });
+        });
+
+        gsap.from('.title-project', {
+          duration: 1.5,
+          y: -50,
+          opacity: 0,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.title-project',
+            start: 'top 80%',
+            end: 'bottom top',
+            scrub: true,
+          }
+        });
+      }
+    },
+
+    animateText(scrubEnabled) {
+      // Animation simple du texte qui marche pour les deux
+      gsap.from(".name span", {
+        duration: 1,
         opacity: 0,
         y: 50,
-        duration: 1,
-        delay: index * 0.1,
+        stagger: 0.1,
+        ease: "back.out(1.7)"
       });
-    });
-    
-    gsap.from('.title-project', {
-      duration: 1.5,
-      y: -50,
-      opacity: 0,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.title-project',
-        start: 'top 80%',
-        end: 'bottom top',
-        scrub: scrubEnabled ? true : false,
+
+      gsap.from(".quote span", {
+        duration: 1.5,
+        opacity: 0,
+        rotationX: 90,
+        transformOrigin: "top center",
+        stagger: 0.15,
+        ease: "expo.out",
+        delay: 1
+      });
+    },
+
+    animateAvatar(scrubEnabled) {
+      // Animation de l'avatar, basique sans ScrollTrigger pour mobile
+      gsap.from(this.$refs.avatar, {
+        duration: 1.5,
+        opacity: 0,
+        y: 100,
+        ease: "power3.out",
+        delay: 1.5
+      });
+    },
+
+    animateAbout(scrubEnabled) {
+      if (!scrubEnabled) {
+        // Animation basique pour mobile sans ScrollTrigger
+        gsap.from('.image', {
+          duration: 1.5,
+          x: -100,
+          opacity: 0,
+          ease: 'power3.out',
+        });
+
+        gsap.from('.title', {
+          duration: 1,
+          x: 100,
+          opacity: 0,
+          stagger: 0.2,
+          ease: 'power3.out',
+        });
+
+        gsap.from('.me', {
+          duration: 1.5,
+          x: 100,
+          opacity: 0,
+          stagger: 0.2,
+          ease: 'power3.out',
+        });
+      } else {
+        // Animations avec ScrollTrigger pour desktop
+        gsap.from('.image', {
+          duration: 1.5,
+          x: -100,
+          opacity: 0,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.image',
+            start: 'top 80%',
+            end: 'bottom top',
+            scrub: true,
+          }
+        });
+
+        gsap.from('.title', {
+          duration: 1,
+          x: 100,
+          opacity: 0,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.title',
+            start: 'top 90%',
+            end: 'bottom top',
+            scrub: true,
+          }
+        });
+
+        gsap.from('.me', {
+          duration: 1.5,
+          x: 100,
+          opacity: 0,
+          stagger: 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.me',
+            start: 'top 80%',
+            end: 'bottom top',
+            scrub: true,
+          }
+        });
       }
-    });
-  },
+    },
 
-  animateText(scrubEnabled) {
-    gsap.from(".name span", {
-      duration: 1,
-      opacity: 0,
-      y: 50,
-      stagger: 0.1,
-      ease: "back.out(1.7)"
-    });
+    animateContactSection(scrubEnabled) {
+      if (!scrubEnabled) {
+        // Animation basique pour mobile sans ScrollTrigger
+        gsap.from('.contact-title', {
+          duration: 1.5,
+          y: -50,
+          opacity: 0,
+          ease: 'power3.out',
+        });
 
-    gsap.from(".quote span", {
-      duration: 1.5,
-      opacity: 0,
-      rotationX: 90,
-      transformOrigin: "top center",
-      stagger: 0.15,
-      ease: "expo.out",
-      delay: 1
-    });
-  },
+        gsap.from('.contact-content', {
+          duration: 1.5,
+          y: 50,
+          opacity: 0,
+          ease: 'power3.out',
+        });
+      } else {
+        // Animation avec ScrollTrigger pour desktop
+        gsap.from('.contact-title', {
+          duration: 1.5,
+          y: -50,
+          opacity: 0,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.contact-title',
+            start: 'top 80%',
+            end: 'bottom top',
+            scrub: true,
+          }
+        });
 
-  animateAvatar(scrubEnabled) {
-    gsap.from(this.$refs.avatar.$el, {
-      duration: 1.5,
-      opacity: 0,
-      y: 100,
-      ease: "power3.out",
-      delay: 1.5
-    });
-  },
-
-  animateAbout(scrubEnabled) {
-    gsap.from('.image', {
-      duration: 1.5,
-      x: -100,
-      opacity: 0,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.image',
-        start: 'top 80%',
-        end: 'bottom top',
-        scrub: scrubEnabled ? true : false,
+        gsap.from('.contact-content', {
+          duration: 1.5,
+          y: 50,
+          opacity: 0,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.contact-content',
+            start: 'top 80%',
+            end: 'bottom top',
+            scrub: true,
+          }
+        });
       }
-    });
-
-    gsap.from('.title', {
-      duration: 1,
-      x: 100,
-      opacity: 0,
-      stagger: 0.2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.title',
-        start: 'top 90%',
-        end: 'bottom top',
-        scrub: scrubEnabled ? true : false,
-      }
-    });
-
-    gsap.from('.me', {
-      duration: 1.5,
-      x: 100,
-      opacity: 0,
-      stagger: 0.2,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.me',
-        start: 'top 80%',
-        end: 'bottom top',
-        scrub: scrubEnabled ? true : false,
-      }
-    });
-  },
-
-  animateContactSection(scrubEnabled) {
-    gsap.from('.contact-title', {
-      duration: 1.5,
-      y: -50,
-      opacity: 0,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.contact-title',
-        start: 'top 80%',
-        end: 'bottom top',
-        scrub: scrubEnabled ? true : false,
-      }
-    });
-
-    gsap.from('.contact-content', {
-      duration: 1.5,
-      y: 50,
-      opacity: 0,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: '.contact-content',
-        start: 'top 80%',
-        end: 'bottom top',
-        scrub: scrubEnabled ? true : false,
-      }
-    });
+    },
   }
-}
 };
 </script>
 <template>
