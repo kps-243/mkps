@@ -38,7 +38,7 @@
         // Charger le modèle GLTF avec animation
         const loader = new GLTFLoader();
         let mixer;
-        loader.load('/models/avatar.glb', (gltf) => {
+        loader.load('/models/moi.glb', (gltf) => {
           const model = gltf.scene;
           model.scale.set(1.2, 1.2, 1.2); // Réduire l'échelle du modèle
           this.scene.add(model);
