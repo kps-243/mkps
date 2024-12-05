@@ -23,52 +23,53 @@ export default {
         {
           title: "Verbateam",
           image: "/img/verbateam.jpeg",
-          altText: "Verbateam Logo",
+          altText: "Logo de Verbateam",
           technology: "WordPress",
           link: "https://verbateam-services.fr/",
-          description: "Verbateam is a corporate health prevention website designed to help companies promote well-being in the workplace. The site was developed using WordPress, with an emphasis on dynamic text content that adapts to user interactions. The project was completed in a month and a half, with additional customization to ensure a smooth user experience."
+          description: "Verbateam est un site dédié à la prévention en santé en entreprise, conçu pour aider les sociétés à promouvoir le bien-être au travail. Développé avec WordPress, le site met l'accent sur un contenu textuel dynamique qui s'adapte aux interactions des utilisateurs. Le projet a été réalisé en un mois et demi, avec des personnalisations supplémentaires pour garantir une expérience utilisateur fluide."
         },
         {
           title: "Lyomat",
           image: "/img/lyomat.jpeg",
-          altText: "Lyomat Logo",
+          altText: "Logo de Lyomat",
           technology: "WordPress",
           link: "https://lyomat.fr/",
-          description: "Lyomat is an e-commerce website dedicated to the sale of construction equipment. The platform is connected with JBC, a leading provider of construction machinery. Over the course of one year, I maintained the project by regularly updating WordPress, adding new features, and ensuring seamless functionality. The site caters to professionals in the construction industry, offering an intuitive and efficient shopping experience."
+          description: "Lyomat est un site e-commerce dédié à la vente d'équipements de construction. La plateforme est connectée à JBC, un fournisseur majeur de machines de chantier. Pendant un an, j'ai assuré la maintenance du projet, incluant des mises à jour régulières de WordPress, l'ajout de nouvelles fonctionnalités et la garantie d'un fonctionnement optimal. Le site offre une expérience d'achat intuitive et efficace pour les professionnels du secteur."
         },
         {
           title: "ETPA",
           image: "/img/etpa.jpeg",
-          altText: "ETPA Logo",
+          altText: "Logo de l'ETPA",
           technology: "Laravel",
           link: "https://www.etpa.com/",
-          description: "ETPA is the official website for the ETPA photography school, showcasing their programs, events, and student portfolios. Built using Laravel, this platform was maintained for a full year, during which various updates and optimizations were implemented to improve site performance and user engagement. It serves as an informative hub for prospective students and partners of the school."
+          description: "ETPA est le site officiel de l'école de photographie ETPA, mettant en avant ses programmes, événements et portfolios d'étudiants. Construit avec Laravel, ce site a été maintenu pendant un an, période durant laquelle diverses mises à jour et optimisations ont été réalisées pour améliorer les performances et l'engagement des utilisateurs. Il s'agit d'un hub informatif pour les futurs étudiants et partenaires de l'école."
         },
         {
           title: "Elixir",
           image: "/img/elixir.jpeg",
-          altText: "Elixir Logo",
+          altText: "Logo d'Elixir",
           technology: "Prestashop",
           link: "https://elixir-lingerie.com",
-          description: "Elixir is a sophisticated e-commerce site selling high-end lingerie, developed using Prestashop. The project was completed within three months, followed by ongoing maintenance, including updates to the Prestashop platform and bug fixes. The website’s elegant design and smooth navigation provide a premium shopping experience, aligning with the brand's luxurious image."
+          description: "Elixir est un site e-commerce sophistiqué dédié à la vente de lingerie haut de gamme, développé avec Prestashop. Le projet a été réalisé en trois mois, suivi d'une maintenance continue incluant des mises à jour de la plateforme et des corrections de bugs. Le design élégant et la navigation fluide du site offrent une expérience d'achat premium, en adéquation avec l'image luxueuse de la marque."
         },
         {
           title: "Alors",
           image: "/img/alors.jpeg",
-          altText: "Alors Logo",
+          altText: "Logo d'Alors",
           technology: "Prestashop",
           link: "https://velos.alors.store/",
-          description: "Alors is a streamlined e-commerce platform specializing in the sale of electric bicycles. The website was developed using native CSS and integrated with Prestashop. The project was completed in just one month, ensuring fast deployment without compromising on quality. The site offers a clean and intuitive interface, making it easy for customers to browse and purchase the latest electric bikes."
+          description: "Alors est une plateforme e-commerce dédiée à la vente de vélos électriques. Le site a été développé en CSS natif et intégré avec Prestashop. Réalisé en seulement un mois, le projet a été déployé rapidement sans compromettre la qualité. Le site propose une interface claire et intuitive, facilitant la navigation et l'achat des derniers modèles de vélos électriques."
         },
         {
           title: "Clos & Hameaux",
           image: "/img/closethameaux.jpeg",
-          altText: "Clos et Hameaux Logo",
+          altText: "Logo de Clos et Hameaux",
           technology: "NuxtJs",
           link: "https://closethameau.fr/",
-          description: "Clos & Hameaux is a promotional website for a senior living community, offering a serene and active environment for the elderly. The site was developed using Nuxt.js for the front-end and Strapi for the back-end, completed within two months. The platform serves as a vibrant showcase of the village, highlighting its amenities, services, and community activities, making it appealing to potential residents and their families."
+          description: "Clos & Hameaux est un site promotionnel pour une résidence senior, offrant un environnement serein et actif aux personnes âgées. Le site a été développé avec Nuxt.js pour le front-end et Strapi pour le back-end, en deux mois. La plateforme met en valeur les équipements, services et activités communautaires du village, le rendant attrayant pour les futurs résidents et leurs familles."
         }
       ]
+
     };
   },
   mounted() {
@@ -328,13 +329,13 @@ methods: {
             <span> K</span><span>P</span><span>A</span><span>S</span><span>S</span><span>I</span>
           </h1>            
           <p class="mt-5 text-base px-6 italic quote">
-            <span>I'm a passionate web developer,</span>&nbsp;
-            <span>ready to take on any challenge</span>&nbsp;
-            <span>with the precision and strength</span>&nbsp;
-            <span>of a boxer.</span><br>
-            <span>Creative in code,</span>&nbsp;
-            <span>technical in approach.</span>
-          </p>        
+              <span>Je suis un développeur web passionné,</span>&nbsp;
+              <span>prêt à relever tous les défis</span>&nbsp;
+              <span>avec la précision et la force</span>&nbsp;
+              <span>d'un boxeur.</span><br>
+              <span>Créatif dans le code,</span>&nbsp;
+              <span>technique dans l'approche.</span>
+          </p>
         </div>
         <!-- Insertion de l'avatar 3D -->
       <ThreeAvatar ref="avatar" />
@@ -342,7 +343,7 @@ methods: {
 
       <section id="a-propos" class="-mt-20 lg:my-8 container mx-auto font-mons">
         <div class="flex flex-col lg:flex-row items-center gap-8">
-          <h2 class="lg:hidden block text-xl uppercase font-right w-fit title">About Me</h2>
+          <h2 class="lg:hidden block text-xl uppercase font-right w-fit title">À propos de moi</h2>
           <div class="w-full lg:w-1/2 flex justify-center">
             <div class="w-56 lg:w-80 h-fit">
               <img
@@ -354,20 +355,17 @@ methods: {
           </div>
           <div class="w-full lg:w-1/2">
             <div class="flex flex-col gap-5">
-              <h2 class="hidden lg:block text-4xl uppercase font-right w-fit title">About Me</h2>
+              <h2 class="hidden lg:block text-4xl uppercase font-right w-fit title">À propos de moi</h2>
               <div class="flex flex-col gap-3 px-6 lg:px-0">
                 <p class="me">
-                  My name is Morgan Kpassi, I am 21 years old, and I hold a DUT in Multimedia and Internet Careers as well as a Bachelor's degree in Web Engineering from ESGI.
-                </p>
+                  Je suis Morgan Kpassi, développeur web freelance passionné par la création de solutions numériques sur mesure. Fort d'une solide expérience en agence et de formations spécialisées en développement web, je mets mon expertise au service des entreprises et entrepreneurs souhaitant concrétiser leurs projets digitaux.</p>
                 <p class="me">
-                  I am passionate about combat sports, basketball, and running. I have skills in Nuxt.js, Laravel, WordPress, Strapi, and Prestashop.
-                </p>
+                  Spécialisé dans les frameworks modernes comme Nuxt.js, Laravel, et les outils CMS tels que WordPress ou Prestashop, je suis en mesure de concevoir des sites performants, esthétiques et optimisés pour le référencement. Que ce soit pour une refonte, un développement sur mesure ou l’intégration d’une API, chaque projet est abordé avec rigueur, créativité et engagement.</p>
                 <p class="me">
-                  I have two years of professional experience at Sharewood, a digital marketing agency based in Lyon, specializing in web development. I have had the opportunity to collaborate with community managers, graphic designers, and developers within a dynamic team.
-                </p>
+                  En parallèle, ma maîtrise des outils collaboratifs comme Git et mon expérience en gestion de projets avec des équipes pluridisciplinaires garantissent une communication fluide et des livrables de qualité.                </p>
                 <p class="me">
-                  I am proficient in Git and am currently seeking a two-year internship to complete a Master's degree in Web Development.
-                </p>
+                  Si vous avez un projet, je serais ravi de vous accompagner dans sa réussite. Ensemble, transformons vos idées en solutions concrètes et impactantes.</p>
+                  <p class="me">👉 Contactez-moi dès aujourd'hui pour discuter de votre projet.</p>
               </div>
             </div>
           </div>
@@ -394,12 +392,12 @@ methods: {
         <h2 class="lg:text-4xl text-xl uppercase font-right text-center contact-title">Contact</h2>
         <div class="flex flex-col lg:flex-row justify-center items-center gap-5 bg-white text-purple-500 lg:rounded-full rounded-3xl py-4 px-12 lg:px-24 shadow-2xl contact-content">
           <div class="w-full lg:w-1/2 text-center lg:text-left flex flex-col gap-4">
-            <p>Want to know more about Morgan&nbsp;KPASSI?</p>
-            <p class="font-semibold text-2xl">Download my CV &#128521;</p>
+            <p>Vous voulez en savoir plus sur Morgan&nbsp;KPASSI?</p>
+            <p class="font-semibold text-2xl">Télécharger mon CV &#128521;</p>
           </div>
           <div class="flex justify-end items-center gap-5 lg:w-1/2 w-fit">
             <a href="pdf/cv_morgan_kpassi.pdf" target="_blank" class="w-full lg:w-fit bg-purple-500 text-white px-12 py-2 rounded-xl hover:bg-pink-300 hover:text-white transition">
-              Download
+              Télécharger
             </a>
           </div>
         </div>

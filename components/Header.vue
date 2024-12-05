@@ -15,25 +15,26 @@
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex gap-5 text-base nav-links">
-        <a href="#home" class="mr-4 text-center hover:text-pink-400">Home</a>
-        <a href="#a-propos" class="mr-4 text-center hover:text-pink-400">About</a>
-        <a href="#project" class="mr-4 text-center hover:text-pink-400">Projects</a>
-        <a href="#contact" class="mr-4 text-center hover:text-pink-400">Contact</a>
+          <a href="#home" class="mr-4 text-center hover:text-pink-400">Accueil</a>
+          <a href="#a-propos" class="mr-4 text-center hover:text-pink-400">À propos</a>
+          <a href="#project" class="mr-4 text-center hover:text-pink-400">Projets</a>
+          <a href="#contact" class="mr-4 text-center hover:text-pink-400">Contact</a>
       </nav>
 
+
       <!-- Contact (visible on all screens) -->
-      <div class="hidden md:block contact-info">Call me. (+33) 06 66 84 23 88</div>
+      <div class="hidden md:block contact-info">Appelez-moi. (+33) 06 66 84 23 88</div>
     </div>
 
     <!-- Mobile Navigation Menu -->
     <div v-if="isMenuOpen" class="md:hidden flex flex-col justify-center items-center mt-4 bg-purple-500 text-white rounded-lg p-4 h-screen burger-menu-content">
       <nav class="flex flex-col gap-8 text-xl -mt-10">
-        <a href="#home" @click="toggleMenu" class="text-center hover:text-pink-400">Home</a>
-        <a href="#a-propos" @click="toggleMenu" class="text-center hover:text-pink-400">About</a>
-        <a href="#project" @click="toggleMenu" class="text-center hover:text-pink-400">Projects</a>
+        <a href="#home" @click="toggleMenu" class="text-center hover:text-pink-400">Accueil</a>
+        <a href="#a-propos" @click="toggleMenu" class="text-center hover:text-pink-400">À propos</a>
+        <a href="#project" @click="toggleMenu" class="text-center hover:text-pink-400">Projets</a>
         <a href="#contact" @click="toggleMenu" class="text-center hover:text-pink-400">Contact</a>
       </nav>
-      <div class="mt-8 text-center">Call me. (+33) 06 66 84 23 88</div>
+      <div class="mt-8 text-center">Appelez-moi. (+33) 06 66 84 23 88</div>
     </div>
   </header>
 </template>

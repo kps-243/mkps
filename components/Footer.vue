@@ -8,9 +8,9 @@
       <div class="flex flex-col gap-2 lg:gap-4 part2">
         <div class="font-medium text-lg lg:text-2xl">Menu</div>
         <div class="flex flex-col gap-1">
-          <a href="#home" class="hover:text-white">Home</a>
-          <a href="#a-propos" class="hover:text-white">About</a>
-          <a href="#project" class="hover:text-white">Projects</a>
+          <a href="#home" class="hover:text-white">Accueil</a>
+          <a href="#a-propos" class="hover:text-white">À propos</a>
+          <a href="#project" class="hover:text-white">Projets</a>
           <a href="#contact" class="hover:text-white">Contact</a>
         </div>
       </div>

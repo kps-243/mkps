@@ -13,7 +13,7 @@
   
         <!-- Bouton pour afficher la popup -->
         <button @click="showPopup = true" class="w-1/2 mt-1 lg:mt-4 bg-white text-purple-500 px-4 py-2 rounded-xl hover:bg-purple-500 hover:text-white transition">
-          View Details
+          Voir les détails
         </button>
       </div>
   
