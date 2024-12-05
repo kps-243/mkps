@@ -373,7 +373,7 @@ methods: {
       </section>
 
       <section id="project" class="my-28 container mx-auto font-mons flex flex-col gap-12 lg:gap-20">
-        <h2 class="lg:text-4xl text-xl uppercase font-right text-center title">projects</h2>
+        <h2 class="lg:text-4xl text-xl uppercase font-right text-center title">projets</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14">
           <ProjectCard
             v-for="(project, index) in projects"
