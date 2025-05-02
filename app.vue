@@ -347,7 +347,7 @@ methods: {
           <div class="w-full lg:w-1/2 flex justify-center">
             <div class="w-56 lg:w-80 h-fit">
               <img
-                src="/img/morgan-plage.jpg"
+                src="/img/morgan.jpeg"
                 alt=""
                 class="object-contain rounded-xl shadow-2xl image"
               />
@@ -358,14 +358,20 @@ methods: {
               <h2 class="hidden lg:block text-4xl uppercase font-right w-fit title">À propos de moi</h2>
               <div class="flex flex-col gap-3 px-6 lg:px-0">
                 <p class="me">
-                  Je suis Morgan Kpassi, développeur web freelance passionné par la création de solutions numériques sur mesure. Fort d'une solide expérience en agence et de formations spécialisées en développement web, je mets mon expertise au service des entreprises et entrepreneurs souhaitant concrétiser leurs projets digitaux.</p>
+                  Je suis Morgan Kpassi, développeur web passionné, actuellement à la recherche d'une alternance à partir de <strong>septembre 2025</strong> dans le cadre d’un master en développement web.
+                </p>
                 <p class="me">
-                  Spécialisé dans les frameworks modernes comme Nuxt.js, Laravel, et les outils CMS tels que WordPress ou Prestashop, je suis en mesure de concevoir des sites performants, esthétiques et optimisés pour le référencement. Que ce soit pour une refonte, un développement sur mesure ou l’intégration d’une API, chaque projet est abordé avec rigueur, créativité et engagement.</p>
+                  Fort de plusieurs expériences en agence et en freelance, j’ai eu l’opportunité de concevoir des projets variés en utilisant des technologies comme <strong>Nuxt.js, Laravel, WordPress</strong> ou encore <strong>Prestashop</strong>. J'accorde une attention particulière à la performance, à l'accessibilité et à l’ergonomie des interfaces.
+                </p>
                 <p class="me">
-                  En parallèle, ma maîtrise des outils collaboratifs comme Git et mon expérience en gestion de projets avec des équipes pluridisciplinaires garantissent une communication fluide et des livrables de qualité.                </p>
+                  J’ai également développé de solides compétences en <strong>gestion de projet</strong>, en <strong>travail en équipe pluridisciplinaire</strong> et en <strong>versioning avec Git</strong>, me permettant de m’adapter facilement à différents environnements techniques.
+                </p>
                 <p class="me">
-                  Si vous avez un projet, je serais ravi de vous accompagner dans sa réussite. Ensemble, transformons vos idées en solutions concrètes et impactantes.</p>
-                  <p class="me">👉 Contactez-moi dès aujourd'hui pour discuter de votre projet.</p>
+                  Mon objectif : intégrer une entreprise dynamique dans laquelle je pourrais apporter mes compétences tout en continuant à me former sur des projets concrets et ambitieux.
+                </p>
+                <p class="me">
+                  👉 <strong>N'hésitez pas à me contacter</strong> pour en savoir plus ou échanger autour d’une opportunité d’alternance.
+                </p>
               </div>
             </div>
           </div>
@@ -392,7 +398,7 @@ methods: {
         <h2 class="lg:text-4xl text-xl uppercase font-right text-center contact-title">Contact</h2>
         <div class="flex flex-col lg:flex-row justify-center items-center gap-5 bg-white text-purple-500 lg:rounded-full rounded-3xl py-4 px-12 lg:px-24 shadow-2xl contact-content">
           <div class="w-full lg:w-1/2 text-center lg:text-left flex flex-col gap-4">
-            <p>Vous voulez en savoir plus sur Morgan&nbsp;KPASSI?</p>
+            <p>Vous voulez en savoir plus sur Morgan&nbsp;KPASSI ?</p>
             <p class="font-semibold text-2xl">Télécharger mon CV &#128521;</p>
           </div>
           <div class="flex justify-end items-center gap-5 lg:w-1/2 w-fit">
