@@ -329,12 +329,11 @@ methods: {
             <span> K</span><span>P</span><span>A</span><span>S</span><span>S</span><span>I</span>
           </h1>            
           <p class="mt-5 text-base px-6 italic quote">
-              <span>Je suis un développeur web passionné,</span>&nbsp;
-              <span>prêt à relever tous les défis</span>&nbsp;
-              <span>avec la précision et la force</span>&nbsp;
-              <span>d'un boxeur.</span><br>
-              <span>Créatif dans le code,</span>&nbsp;
-              <span>technique dans l'approche.</span>
+            <span>Développeur web passionné,</span>&nbsp;
+            <span>je conçois des solutions robustes et créatives</span>&nbsp;
+            <span>avec rigueur, curiosité et sens du détail.</span><br>
+            <span>Chaque ligne de code est pour moi un moyen</span>&nbsp;
+            <span>d’allier performance et élégance technique.</span>
           </p>
         </div>
         <!-- Insertion de l'avatar 3D -->
